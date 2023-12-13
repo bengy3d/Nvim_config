@@ -8,23 +8,28 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', {compilers='clang++', run = ':TSUpdate'})
     use('nvim-treesitter/playground')
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
-    use('mfussenegger/nvim-jdtls')
-    use("olimorris/onedarkpro.nvim")
 
     use {
         "windwp/nvim-autopairs",
         config = function() 
             require("nvim-autopairs").setup {}
         end
+    }
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
     }
 
     use {
@@ -58,5 +63,6 @@ return require('packer').startup(function(use)
         end,
     })
 
+    use('folke/tokyonight.nvim')
     use('ThePrimeagen/vim-be-good')
 end)
