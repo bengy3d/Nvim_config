@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+    use('lewis6991/gitsigns.nvim')
+
 
     use {
         "windwp/nvim-autopairs",
@@ -52,16 +54,6 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
         }
     }
-
-    use({
-        "Pocco81/auto-save.nvim",
-        config = function()
-            require("auto-save").setup {
-                -- your config goes here
-                -- or just leave it empty :)
-            }
-        end,
-    })
 
     use('folke/tokyonight.nvim')
     use('ThePrimeagen/vim-be-good')
