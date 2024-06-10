@@ -32,6 +32,12 @@ return {
                 update_focused_file = {
                     enable = true,
                 },
+                renderer = {
+                    group_empty = true,
+                },
+                view = { 
+                    adaptive_size = true 
+                },
                 on_attach = my_on_attach,
             }
         end,
