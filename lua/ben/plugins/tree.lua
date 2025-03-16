@@ -24,7 +24,7 @@ return {
                 api.config.mappings.default_on_attach(bufnr)
 
                 -- custom mappings
-                vim.keymap.set('n', "<leader>t", api.tree.open)
+                vim.keymap.set('n', "<leader>t", api.tree.toggle)
             end
 
             -- OR setup with some options
@@ -36,6 +36,7 @@ return {
                     group_empty = true,
                 },
                 view = { 
+                    relativenumber = true,
                     adaptive_size = true 
                 },
                 on_attach = my_on_attach,
