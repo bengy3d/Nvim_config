@@ -7,7 +7,7 @@ return {
     {'hrsh7th/nvim-cmp'},
     {'L3MON4D3/LuaSnip'},
     {
-        'VonHeikemen/lsp-zero.nvim', 
+        'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         config = function ()
             local lsp = require("lsp-zero")
@@ -37,7 +37,20 @@ return {
               filetypes = { "arduino", "ino" },
             }
 
-            local cmp = require('cmp')
+            require'lspconfig'.lua_ls.setup{
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true)
+                        }
+                    }
+                }
+            }
+
+            local cmp = require'cmp'
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
             cmp.setup({
