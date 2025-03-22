@@ -25,6 +25,18 @@ return {
 
             require'lspconfig'.sourcekit.setup{}
 
+            require'lspconfig'.arduino_language_server.setup{
+              cmd = {
+                "/Users/beniaminpel/.local/share/nvim/mason/bin/arduino-language-server",
+                "-clangd", "/usr/bin/clangd",
+                "-cli", "/opt/homebrew/bin/arduino-cli",
+                "-cli-config", "/Users/beniaminpel/Library/Arduino15/arduino-cli.yaml",
+                "-fqbn", "arduino:avr:leonardo"
+                -- "-fqbn", "arduino:megaavr:uno2018"
+              },
+              filetypes = { "arduino", "ino" },
+            }
+
             local cmp = require('cmp')
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
