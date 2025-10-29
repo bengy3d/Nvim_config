@@ -1,4 +1,3 @@
-vim.cmd("language en_US")
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
