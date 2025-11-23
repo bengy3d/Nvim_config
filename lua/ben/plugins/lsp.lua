@@ -18,14 +18,16 @@ return {
                 ensure_installed = {},
                 handlers = {
                     function(server_name)
-                        require('lspconfig')[server_name].setup({})
+                        vim.lsp.config[server_name] = {}
+                        vim.lsp.enable(server_name)
                     end,
                 },
             })
 
-            require'lspconfig'.sourcekit.setup{}
+            vim.lsp.config.sourcekit = {}
+            vim.lsp.enable('sourcekit')
 
-            require'lspconfig'.arduino_language_server.setup{
+            vim.lsp.config.arduino_language_server = {
               cmd = {
                 "/Users/beniaminpel/.local/share/nvim/mason/bin/arduino-language-server",
                 "-clangd", "/usr/bin/clangd",
@@ -36,8 +38,9 @@ return {
               },
               filetypes = { "arduino", "ino" },
             }
+            vim.lsp.enable('arduino_language_server')
 
-            require'lspconfig'.lua_ls.setup{
+            vim.lsp.config.lua_ls = {
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -49,6 +52,7 @@ return {
                     }
                 }
             }
+            vim.lsp.enable('lua_ls')
 
             local cmp = require'cmp'
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
