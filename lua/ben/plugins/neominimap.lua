@@ -10,7 +10,7 @@ return {
             vim.g.neominimap = {
                 auto_enable = true,
             }
-            vim.keymap.set("n", "<leader>m", ":Neominimap toggle<CR>")
+            vim.keymap.set("n", "<leader>m", ":Neominimap Toggle<CR>")
         end
     },
 }
